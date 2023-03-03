@@ -20,16 +20,14 @@ function App() {
   return (
     <div className="container">
       <div className="grid_6 last">
-        <Link to="/">Home</Link>
+        <Link to="/">Home</Link> | { }
+        <Link to="/read">Admin</Link>
       </div>
       <div className="grid_2">
         <BlogPostsMenuLeft blogposts={ APIData }/>
       </div>
       <div className="grid_4 last">
         <Outlet />
-      </div>
-      <div className="grid_6 last">
-        <Create />
       </div>
     </div> 
   )

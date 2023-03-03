@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import { Button, Form } from 'semantic-ui-react'
 import axios from 'axios';
+import { useNavigate } from 'react-router';
 
 const Create = () => {
+    const navigate = useNavigate();
     const [heading, setHeading] = useState('');
     const [blogpost, setBlogpost] = useState('');
     const postData = () => {
@@ -10,6 +12,7 @@ const Create = () => {
             heading,
             blogpost
         })
+        navigate('/');
     }
     return (
         <Form>
