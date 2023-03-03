@@ -32,6 +32,5 @@ root.render(
     </Route>
     <Route path="/read" element={<Read />} />
     </Routes>
-  </BrowserRouter>
-  
+  </BrowserRouter> 
 )
