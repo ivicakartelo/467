@@ -60,7 +60,7 @@ const Read = () => {
       </Table.Header>
 
       <Table.Body>
-        {posts.map(post => (
+        {posts.slice().reverse().map(post => ( // use slice() to create a copy of the array before reversing it
           <Table.Row key={post.id}>
             <Table.Cell>{post.id}</Table.Cell>
             <Table.Cell>{post.heading}</Table.Cell>
