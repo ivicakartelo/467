@@ -5,10 +5,8 @@ import Update from './Update';
 
 const Read = () => {
   const [posts, setPosts] = useState([]);
+  const [showEditForm, setShowEditForm] = useState(false);
   const [updateId, setUpdateId] = useState('');
-  const handleUpdate = (id) => {
-    setUpdateId(id);
-  };
 
   useEffect(() => {
     axios.get(`https://640114a00a2a1afebee5c77d.mockapi.io/post`)
@@ -31,6 +29,22 @@ const Read = () => {
       });
   };
 
+  const handleUpdate = (id) => {
+    setUpdateId(id);
+    setShowEditForm(true);
+  };
+
+  const handleUpdatePost = (updatedPost) => {
+    const updatedPosts = posts.map(post => {
+      if (post.id === updatedPost.id) {
+        return updatedPost;
+      }
+      return post;
+    });
+    setPosts(updatedPosts);
+    setShowEditForm(false);
+  };
+
   return (
     <Table celled>
       <Table.Header>
@@ -49,7 +63,17 @@ const Read = () => {
             <Table.Cell>{post.heading}</Table.Cell>
             <Table.Cell>{post.blogpost}</Table.Cell>
             <Table.Cell>
-              <Button color='yellow'>Update</Button>
+              {showEditForm && updateId === post.id ? (
+                <Update
+                  post={post}
+                  handleUpdatePost={handleUpdatePost}
+                  setShowEditForm={setShowEditForm}
+                />
+              ) : (
+                <Button color='yellow' onClick={() => handleUpdate(post.id)}>
+                  Update
+                </Button>
+              )}
               <Button color='red' onClick={() => handleDelete(post.id)}>Delete</Button>
             </Table.Cell>
           </Table.Row>

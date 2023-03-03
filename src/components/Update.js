@@ -1,23 +1,23 @@
 import React, { useState } from 'react';
-import { Button, Form } from 'semantic-ui-react';
+import { Button, Form, Input } from 'semantic-ui-react';
 import axios from 'axios';
 
-const Update = () => {
-  const [id, setId] = useState('');
-  const [heading, setHeading] = useState('');
-  const [blogpost, setBlogpost] = useState('');
+const Update = ({ post, handleUpdatePost, setShowEditForm }) => {
+  const [heading, setHeading] = useState(post.heading);
+  const [blogpost, setBlogpost] = useState(post.blogpost);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    axios.put(`https://640114a00a2a1afebee5c77d.mockapi.io/post/${id}`, {
+  const handleSubmit = () => {
+    axios.put(`https://640114a00a2a1afebee5c77d.mockapi.io/post/${post.id}`, {
       heading,
       blogpost
     })
       .then(() => {
-        setId('');
-        setHeading('');
-        setBlogpost('');
+        handleUpdatePost({
+          id: post.id,
+          heading,
+          blogpost
+        });
+        setShowEditForm(false);
       })
       .catch(err => {
         console.log(err);
@@ -27,21 +27,23 @@ const Update = () => {
   return (
     <Form onSubmit={handleSubmit}>
       <Form.Field>
-        <label>ID</label>
-        <input placeholder='ID' value={id} onChange={(e) => setId(e.target.value)} />
-      </Form.Field>
-
-      <Form.Field>
         <label>Heading</label>
-        <input placeholder='Heading' value={heading} onChange={(e) => setHeading(e.target.value)} />
+        <Input
+          placeholder='Heading'
+          value={heading}
+          onChange={e => setHeading(e.target.value)}
+        />
       </Form.Field>
-
       <Form.Field>
         <label>Blogpost</label>
-        <textarea placeholder='Blogpost' value={blogpost} onChange={(e) => setBlogpost(e.target.value)} />
+        <Input
+          placeholder='Blogpost'
+          value={blogpost}
+          onChange={e => setBlogpost(e.target.value)}
+        />
       </Form.Field>
-
-      <Button type='submit'>Update</Button>
+      <Button type='submit' color='green'>Update</Button>
+      <Button type='button' onClick={() => setShowEditForm(false)}>Cancel</Button>
     </Form>
   );
 };
