@@ -17,8 +17,8 @@ const Create = () => {
             <label>heading</label>
             <input placeholder='heading' onChange={(e) => setHeading(e.target.value)} />
         </Form.Field>
-        <div class="ui form">
-            <div class="field">
+        <div className="ui form">
+            <div className="field">
                 <label>blogpost</label>
                 <textarea placeholder='blogpost' onChange={(e) => setBlogpost(e.target.value)}></textarea>
             </div> 

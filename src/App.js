@@ -1,7 +1,6 @@
 import { Link, Outlet } from 'react-router-dom'
 import BlogPostsMenuLeft from './components/BlogPostsMenuLeft';
 import "./App.css"
-import blogposts from './components/blogposts-data'
 import Create from './components/Create';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
