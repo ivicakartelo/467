@@ -21,15 +21,15 @@ function BlogPost() {
     return <p>Blog post not found.</p>;
   }
 
-  const paragraphs = blogpost.blogpost.split('\n').map((paragraph, index) => (
-    <p key={index}>{paragraph}</p>
-  ));
+  const paragraphs = blogpost.blogpost.split('\n');
 
   return (
     <>
-      <h1>{blogpost.heading}</h1>
-      {paragraphs}
-    </>
+    <h1>{blogpost.heading}</h1>
+    {paragraphs.map((paragraph, index) => (
+      <p key={index} dangerouslySetInnerHTML={{ __html: paragraph }}></p>
+    ))}
+  </>
   );
 }
 
