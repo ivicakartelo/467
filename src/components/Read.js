@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Button, Table } from 'semantic-ui-react';
 import axios from 'axios';
 import Update from './Update';
+import Create from './Create';
 
 const Read = () => {
   const [posts, setPosts] = useState([]);
@@ -46,6 +47,8 @@ const Read = () => {
   };
 
   return (
+    <>
+    <Create />
     <Table celled>
       <Table.Header>
         <Table.Row>
@@ -80,6 +83,8 @@ const Read = () => {
         ))}
       </Table.Body>
     </Table>
+    </>
+    
   );
 };
 

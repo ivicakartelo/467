@@ -16,13 +16,9 @@ import 'semantic-ui-css/semantic.min.css'
 
 import axios from 'axios';
 
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
-
-  
-  
     <BrowserRouter>
     <Routes>
       <Route path="/" element={<App />} >
@@ -35,7 +31,6 @@ root.render(
       <Route path=":id" element={<BlogPost blogposts={ blogposts } />} />
     </Route>
     <Route path="/read" element={<Read />} />
-    <Route path="/update" element={<Update />} />
     </Routes>
   </BrowserRouter>
   
