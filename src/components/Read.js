@@ -53,7 +53,7 @@ const Read = () => {
   };
 
   return (
-    <>
+    <div className="container">
     <Create addNewPost={handleAddNewPost} />
     <Table celled>
       <Table.Header>
@@ -89,7 +89,7 @@ const Read = () => {
         ))}
       </Table.Body>
     </Table>
-    </>
+    </div>
     
   );
 };
