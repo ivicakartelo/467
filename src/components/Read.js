@@ -6,6 +6,10 @@ import Create from './Create';
 
 
 const Read = () => {
+
+  const handleAddNewPost = (newPost) => {
+    setPosts([...posts, newPost]);
+  }
   
   const [posts, setPosts] = useState([]);
   const [showEditForm, setShowEditForm] = useState(false);
@@ -50,7 +54,7 @@ const Read = () => {
 
   return (
     <>
-    <Create />
+    <Create addNewPost={handleAddNewPost} />
     <Table celled>
       <Table.Header>
         <Table.Row>
