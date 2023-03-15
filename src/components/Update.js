@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Form, Input } from 'semantic-ui-react';
+import { Button, Form, Input, TextArea } from 'semantic-ui-react';
 import axios from 'axios';
 
 const Update = ({ post, handleUpdatePost, setShowEditForm }) => {
@@ -36,7 +36,7 @@ const Update = ({ post, handleUpdatePost, setShowEditForm }) => {
       </Form.Field>
       <Form.Field>
         <label>Blogpost</label>
-        <Input
+        <TextArea
           placeholder='Blogpost'
           value={blogpost}
           onChange={e => setBlogpost(e.target.value)}

@@ -7,6 +7,7 @@ const Create = ({ addNewPost }) => {
     const navigate = useNavigate();
     const [heading, setHeading] = useState('');
     const [blogpost, setBlogpost] = useState('');
+    
     const postData = () => {
         axios.post(`https://640114a00a2a1afebee5c77d.mockapi.io/post`, {
           heading,

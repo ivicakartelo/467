@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import React, { useState, useEffect } from 'react';
 import { Button, Table } from 'semantic-ui-react';
 import axios from 'axios';
@@ -42,18 +43,14 @@ const Read = () => {
   };
 
   const handleUpdatePost = (updatedPost) => {
-    const updatedPosts = posts.map(post => {
-      if (post.id === updatedPost.id) {
-        return updatedPost;
-      }
-      return post;
-    });
-    setPosts(updatedPosts);
+    setPosts(posts.map(post => post.id === updatedPost.id ? updatedPost : post));
     setShowEditForm(false);
   };
 
   return (
     <div className="container">
+      <Link to="/">Home</Link> | { }
+      <Link to="/read">Admin</Link>
     <Create addNewPost={handleAddNewPost} />
     <Table celled>
       <Table.Header>

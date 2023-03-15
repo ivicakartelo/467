@@ -5,7 +5,6 @@ import App from './App'
 import BlogPost from './components/BlogPost'
 import BlogpostsMenu from './components/BlogpostsMenu'
 import Read from './components/Read'
-import Update from './components/Update'
 import {
   BrowserRouter,
   Routes,
