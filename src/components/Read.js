@@ -5,19 +5,13 @@ import axios from 'axios';
 import Update from './Update';
 import Create from './Create';
 
-
 const Read = () => {
-
-  const handleAddNewPost = (newPost) => {
-    setPosts([...posts, newPost]);
-  }
-  
   const [posts, setPosts] = useState([]);
   const [showEditForm, setShowEditForm] = useState(false);
   const [updateId, setUpdateId] = useState('');
 
   useEffect(() => {
-    axios.get(`https://640114a00a2a1afebee5c77d.mockapi.io/post`)
+    axios.get(`https://640114a00a2a1afebee5c77d.mockapi.io/post1`)
       .then(res => {
         const posts = res.data;
         setPosts(posts);
@@ -27,8 +21,13 @@ const Read = () => {
       });
   }, []);
 
+  const handleAddNewPost = (newPost) => {
+    setPosts([...posts, newPost]);
+  }
+
   const handleDelete = (id) => {
-    axios.delete(`https://640114a00a2a1afebee5c77d.mockapi.io/post/${id}`)
+    axios.delete(`https://640114a00a2a1afebee5c77d.mockapi.io/post1/${id}`)
+
       .then(() => {
         setPosts(posts.filter(post => post.id !== id));
       })

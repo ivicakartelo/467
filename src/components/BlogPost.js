@@ -7,7 +7,7 @@ function BlogPost() {
 
   useEffect(() => {
     axios
-      .get(`https://640114a00a2a1afebee5c77d.mockapi.io/post`)
+      .get(`https://640114a00a2a1afebee5c77d.mockapi.io/post1`)
       .then((response) => {
         setAPIData(response.data);
       });

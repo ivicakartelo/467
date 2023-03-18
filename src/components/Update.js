@@ -7,7 +7,7 @@ const Update = ({ post, handleUpdatePost, setShowEditForm }) => {
   const [blogpost, setBlogpost] = useState(post.blogpost);
 
   const handleSubmit = () => {
-    axios.put(`https://640114a00a2a1afebee5c77d.mockapi.io/post/${post.id}`, {
+    axios.put(`https://640114a00a2a1afebee5c77d.mockapi.io/post1/${post.id}`, {
       heading,
       blogpost
     })

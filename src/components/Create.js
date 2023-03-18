@@ -9,7 +9,7 @@ const Create = ({ addNewPost }) => {
     const [blogpost, setBlogpost] = useState('');
     
     const postData = () => {
-        axios.post(`https://640114a00a2a1afebee5c77d.mockapi.io/post`, {
+        axios.post(`https://640114a00a2a1afebee5c77d.mockapi.io/post1`, {
           heading,
           blogpost
         })
