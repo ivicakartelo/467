@@ -1,20 +1,15 @@
 import React, { useState } from 'react';
 import { Button, Form, Input, TextArea } from 'semantic-ui-react';
+import axios from 'axios';
 
 const Update = ({ post, handleUpdatePost, setShowEditForm }) => {
   const [heading, setHeading] = useState(post.heading);
   const [blogpost, setBlogpost] = useState(post.blogpost);
 
   const handleSubmit = () => {
-    fetch(`https://640114a00a2a1afebee5c77d.mockapi.io/post1/${post.id}`, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        heading,
-        blogpost
-      })
+    axios.put(`https://640114a00a2a1afebee5c77d.mockapi.io/post1/${post.id}`, {
+      heading,
+      blogpost
     })
       .then(() => {
         handleUpdatePost({
