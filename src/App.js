@@ -3,7 +3,7 @@ import BlogPostsMenuLeft from './components/BlogPostsMenuLeft';
 import "./App.css"
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-
+import LoginModal from './components/LoginModal' 
 
 function App() {
 
@@ -20,7 +20,8 @@ function App() {
     <div className="container">
       <div className="grid_6 last">
         <Link to="/">Home</Link> | { }
-        <Link to="/read">Admin</Link>
+        <Link to="/read">Admin</Link> | { }
+        <LoginModal />
       </div>
       <div className="grid_2">
         <BlogPostsMenuLeft blogposts={ APIData }/>
