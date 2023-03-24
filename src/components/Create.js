@@ -15,7 +15,7 @@ const Create = ({ addNewPost }) => {
         })
         .then(res => {
           addNewPost(res.data); // call the function to update the posts state
-          navigate('/'); // navigate to the Read page after the new post is added
+          navigate('/'); // navigate to the Home page after the new post is added
         })
         .catch(err => {
           console.log(err);

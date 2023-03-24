@@ -5,21 +5,23 @@ import axios from 'axios';
 import Update from './Update';
 import Create from './Create';
 
-const Read = () => {
+function Read() {
   const [posts, setPosts] = useState([]);
   const [showEditForm, setShowEditForm] = useState(false);
   const [updateId, setUpdateId] = useState('');
 
   useEffect(() => {
     axios.get(`https://640114a00a2a1afebee5c77d.mockapi.io/post1`)
-      .then(res => {
+    .then(res => {
         const posts = res.data;
         setPosts(posts);
       })
-      .catch(err => {
+    .catch(err => {
         console.log(err);
       });
-  }, []);
+      alert('Component Read.js has finished rendering!');
+    
+    }, []);
 
   const handleAddNewPost = (newPost) => {
     setPosts([...posts, newPost]);
