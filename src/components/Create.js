@@ -10,7 +10,7 @@ const Create = ({ addNewPost }) => {
   const [isLoading, setIsLoading] = useState(false);
 
   const postData = async () => {
-    setIsLoading(true); // set isLoading to true
+    setIsLoading(true);
     try {
       const response = await axios.post(
         `https://640114a00a2a1afebee5c77d.mockapi.io/post1`,
@@ -24,7 +24,9 @@ const Create = ({ addNewPost }) => {
     } catch (error) {
       console.log(error);
     }
-    setIsLoading(false); // set isLoading back to false
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 5000); // set a time delay of 5 seconds
   };
 
   return (
@@ -45,7 +47,7 @@ const Create = ({ addNewPost }) => {
           ></textarea>
         </div>
       </div>
-      {isLoading ? ( // conditionally render a loading animation if isLoading is true
+      {isLoading ? (
         <Loader active inline='centered' />
       ) : (
         <Button onClick={postData} type='submit'>
