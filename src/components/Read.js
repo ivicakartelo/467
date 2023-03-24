@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import { Button, Table } from 'semantic-ui-react';
 import axios from 'axios';
@@ -11,31 +11,30 @@ function Read() {
   const [updateId, setUpdateId] = useState('');
 
   useEffect(() => {
-    axios.get(`https://640114a00a2a1afebee5c77d.mockapi.io/post1`)
-    .then(res => {
-        const posts = res.data;
+    async function fetchPosts() {
+      try {
+        const response = await axios.get(`https://640114a00a2a1afebee5c77d.mockapi.io/post1`);
+        const posts = response.data;
         setPosts(posts);
-      })
-    .catch(err => {
-        console.log(err);
-      });
-      alert('Component Read.js has finished rendering!');
-    
-    }, []);
+        alert('Component Read.js has finished rendering!');
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    fetchPosts();
+  }, []);
 
   const handleAddNewPost = (newPost) => {
     setPosts([...posts, newPost]);
-  }
+  };
 
-  const handleDelete = (id) => {
-    axios.delete(`https://640114a00a2a1afebee5c77d.mockapi.io/post1/${id}`)
-
-      .then(() => {
-        setPosts(posts.filter(post => post.id !== id));
-      })
-      .catch(err => {
-        console.log(err);
-      });
+  const handleDelete = async (id) => {
+    try {
+      await axios.delete(`https://640114a00a2a1afebee5c77d.mockapi.io/post1/${id}`);
+      setPosts(posts.filter(post => post.id !== id));
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const handleUpdate = (id) => {
@@ -88,7 +87,6 @@ function Read() {
       </Table.Body>
     </Table>
     </div>
-    
   );
 };
 

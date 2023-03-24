@@ -6,22 +6,21 @@ const Update = ({ post, handleUpdatePost, setShowEditForm }) => {
   const [heading, setHeading] = useState(post.heading);
   const [blogpost, setBlogpost] = useState(post.blogpost);
 
-  const handleSubmit = () => {
-    axios.put(`https://640114a00a2a1afebee5c77d.mockapi.io/post1/${post.id}`, {
-      heading,
-      blogpost
-    })
-      .then(() => {
-        handleUpdatePost({
-          id: post.id,
-          heading,
-          blogpost
-        });
-        setShowEditForm(false);
-      })
-      .catch(err => {
-        console.log(err);
+  const handleSubmit = async () => {
+    try {
+      await axios.put(`https://640114a00a2a1afebee5c77d.mockapi.io/post1/${post.id}`, {
+        heading,
+        blogpost
       });
+      handleUpdatePost({
+        id: post.id,
+        heading,
+        blogpost
+      });
+      setShowEditForm(false);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
