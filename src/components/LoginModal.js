@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { Button, Form, Modal } from 'semantic-ui-react';
+import { useNavigate } from 'react-router';
 
 const LoginModal = () => {
+  const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -13,6 +15,7 @@ const LoginModal = () => {
     // Handle form submission here
     console.log('Submitted:', username, password);
     handleClose();
+    navigate('/read');
   };
 
   return (
