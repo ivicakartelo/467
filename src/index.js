@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css'
 import App from './App'
@@ -12,8 +12,6 @@ import {
 } from "react-router-dom"
 import blogposts from './components/blogposts-data'
 import 'semantic-ui-css/semantic.min.css'
-
-import axios from 'axios';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
