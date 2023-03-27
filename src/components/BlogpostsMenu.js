@@ -26,7 +26,7 @@ function BlogpostsMenu({ blogposts }) {
                             {post.heading}
                         </Link>
                     </h1>
-                    <p>{post.blogpost.substring(0, 150)}...</p>
+                    <p>{post.blogpost?.substring(0, 150)}...</p>
                 </div> 
             ))}
         </>
